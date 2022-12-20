@@ -2,7 +2,7 @@
 
 class CoffeeMachine {
   List coffeeSizes = [1, 2, 3, 4];
-  late double waterLevel, coffeeLevel;
+  late double waterLevel = 0, coffeeLevel = 0;
 
   void turnAvailableOptionOn() {
     print("Options Available");
@@ -12,8 +12,16 @@ class CoffeeMachine {
     print("Options Is Not Available");
   }
 
+  void fakeWaterAdd(double water) {
+    waterLevel += water;
+  }
+
+  void fakeCoffeeAdd(double coffee) {
+    coffeeLevel += coffee;
+  }
+
   bool isWaterLevelEnough(int coffeeSizes) {
-    if (coffeeSizes == 1 && waterLevel == 200) {
+    if (coffeeSizes == 1 && waterLevel >= 200) {
       return true;
     } else {
       return false;
@@ -21,7 +29,7 @@ class CoffeeMachine {
   }
 
   bool isCoffeeLevelEnough(int coffeeSizes) {
-    if (coffeeSizes == 1 && coffeeLevel == 10) {
+    if (coffeeSizes == 1 && coffeeLevel >= 10) {
       return true;
     } else {
       return false;
@@ -47,6 +55,8 @@ class CoffeeMachine {
         coffeeLevel -= 10;
         print("Coffee is Ready");
         turnAvailableOptionOn();
+      } else {
+        print('Water or coffee levels are not enough');
       }
     }
   }
