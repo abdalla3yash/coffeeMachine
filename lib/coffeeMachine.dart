@@ -1,6 +1,7 @@
-// ignore_for_file: file_names
+// ignore_for_file: file_names, non_constant_identifier_names
 
 class CoffeeMachine {
+  final COFFEE_SIZE_SMALL = 1;
   List coffeeSizes = [1, 2, 3, 4];
   late double waterLevel = 0, coffeeLevel = 0;
 
@@ -21,7 +22,7 @@ class CoffeeMachine {
   }
 
   bool isWaterLevelEnough(int coffeeSizes) {
-    if (coffeeSizes == 1 && waterLevel >= 200) {
+    if (coffeeSizes == COFFEE_SIZE_SMALL && waterLevel >= 200) {
       return true;
     } else {
       return false;
@@ -29,7 +30,7 @@ class CoffeeMachine {
   }
 
   bool isCoffeeLevelEnough(int coffeeSizes) {
-    if (coffeeSizes == 1 && coffeeLevel >= 10) {
+    if (coffeeSizes == COFFEE_SIZE_SMALL && coffeeLevel >= 10) {
       return true;
     } else {
       return false;
@@ -47,7 +48,7 @@ class CoffeeMachine {
   void makeCoffee(int coffeeSizes) {
     // turn options off
     turnAvailableOptionOff();
-    if (coffeeSizes == 1) {
+    if (coffeeSizes == COFFEE_SIZE_SMALL) {
       var waterEnough = isWaterLevelEnough(coffeeSizes);
       var coffeEnough = isCoffeeLevelEnough(coffeeSizes);
       if (waterEnough && coffeEnough) {
